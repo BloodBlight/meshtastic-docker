@@ -13,3 +13,8 @@ Adjust the devices to match those your hardware and config
 ```bash
 sudo docker run --device /dev/ttyAMA10 --device /dev/gpiochip4 --device /dev/gpiomem4 --device /dev/spidev0.0 --device /dev/i2c-1 -v ${HOME}/meshtastic/data:/root/.portduino -v ${HOME}/meshtastic/config.yaml:/etc/meshtasticd/config.yaml -p 0.0.0.0:80:80 -p 0.0.0.0:443:443 -d --name meshtastic cisien/meshtastic-docker
 ```
+
+Run the CLI from within the container:
+```bash
+docker exec -it meshtastic meshtastic --nodes
+```
