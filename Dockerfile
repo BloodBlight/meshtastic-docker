@@ -1,6 +1,7 @@
 FROM debian:bookworm AS build
 WORKDIR /src
 RUN apt update; apt install -y curl pip git python3-venv pkg-config libgpiod-dev libyaml-cpp-dev libbluetooth-dev wget
+RUN apt install -y libusb-1.0-0-dev libuv1-dev libi2c-dev
 ENV VIRTUAL_ENV=/src
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
